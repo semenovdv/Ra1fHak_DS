@@ -40,6 +40,8 @@ if __name__ == "__main__":
         logger.info('Load train df')
         train_df = pd.read_csv(args['d'])
         logger.info(f'Input shape: {train_df.shape}')
+        
+        train_df = get_time_features(train_df)
         train_df = prepare_categorical(train_df)
 
         X_offer = train_df[train_df.price_type == PriceTypeEnum.OFFER_PRICE][NUM_FEATURES+CATEGORICAL_OHE_FEATURES+CATEGORICAL_STE_FEATURES]
