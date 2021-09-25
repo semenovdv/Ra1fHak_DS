@@ -5,6 +5,11 @@ CATEGORICAL_STE_FEATURES = ['region', 'city', 'realty_type']
 # признаки, для которых применяем one hot encoding
 CATEGORICAL_OHE_FEATURES = []
 
+TRAIN_INFLATION = [0.40, 0.33, 0.55, 0.83, 0.27, 0.22, 0.35]
+TRAIN_INFLATION_M = [2,   3,    4,     5,    6,   7,     8]
+                 # фев    мар   апр.  май. июн    июль. авг.  сент
+    
+    
 # численные признаки
 NUM_FEATURES = ['lat', 'lng', 'osm_amenity_points_in_0.001',
        'osm_amenity_points_in_0.005', 'osm_amenity_points_in_0.0075',
@@ -41,6 +46,65 @@ NUM_FEATURES = ['lat', 'lng', 'osm_amenity_points_in_0.001',
        'reform_mean_floor_count_1000', 'reform_mean_floor_count_500',
        'reform_mean_year_building_1000', 'reform_mean_year_building_500','total_square']
 
+MY_FEATURES = ['basement',
+ 'floor',
+ 'mezzanine',
+ 'num_floors',
+ 'osm_city_nearest_name',
+ 'per_square_meter_price',
+ 'price_type',
+ 'randNumCol',
+ 'street',
+ 'sum_build_001',
+ 'sum_build_001_diff',
+ 'sum_build_001_diff_regional',
+ 'sum_build_001_region',
+ 'sum_build_001_share',
+ 'sum_build_001_share_regional',
+ 'sum_build_005',
+ 'sum_build_005_diff',
+ 'sum_build_005_diff_regional',
+ 'sum_build_005_region',
+ 'sum_build_005_share',
+ 'sum_build_005_share_regional',
+ 'sum_build_0075',
+ 'sum_build_0075_diff',
+ 'sum_build_0075_diff_regional',
+ 'sum_build_0075_region',
+ 'sum_build_0075_share',
+ 'sum_build_0075_share_regional',
+ 'sum_build_01',
+ 'sum_build_01_diff',
+ 'sum_build_01_diff_regional',
+ 'sum_build_01_region',
+ 'sum_build_01_share',
+ 'sum_build_01_share_regional',
+ 'sum_other_001',
+ 'sum_other_001_diff',
+ 'sum_other_001_diff_regional',
+ 'sum_other_001_region',
+ 'sum_other_001_share',
+ 'sum_other_001_share_regional',
+ 'sum_other_005',
+ 'sum_other_005_diff',
+ 'sum_other_005_diff_regional',
+ 'sum_other_005_region',
+ 'sum_other_005_share',
+ 'sum_other_005_share_regional',
+ 'sum_other_0075',
+ 'sum_other_0075_diff',
+ 'sum_other_0075_diff_regional',
+ 'sum_other_0075_region',
+ 'sum_other_0075_share',
+ 'sum_other_0075_share_regional',
+ 'sum_other_01',
+ 'sum_other_01_diff',
+ 'sum_other_01_diff_regional',
+ 'sum_other_01_region',
+ 'sum_other_01_share',
+ 'sum_other_01_share_regional',
+ 'tech' ]
+
 MODEL_PARAMS = dict(
             n_estimators=2000,
             learning_rate=0.01,
@@ -48,7 +112,7 @@ MODEL_PARAMS = dict(
             num_leaves=40,
             min_child_samples=5,
             importance_type="gain",
-            n_jobs=1,
+            n_jobs=-1,
             random_state=563,
         )
 
